@@ -1,0 +1,35 @@
+
+<!doctype html>
+<title>Edit "New title" - Flaskr</title>
+<link rel="stylesheet" href="/static/style.css">
+<nav>
+  <h1>Flaskr</h1>
+  <ul>
+    
+      <li><span>user1</span>
+      <li><a href="/logout">Log Out</a>
+    
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    
+  <h1>Edit "New title"</h1>
+
+  </header>
+  
+  
+  <form method="post">
+    <label for="title">Title</label>
+    <input name="title" id="title"
+      value="New title" required>
+    <label for="body">Body</label>
+    <textarea name="body" id="body">New message</textarea>
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="/6f123a1f-abc8-4aa0-9c42-bc4ed7fb8304/delete" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+
+</section>

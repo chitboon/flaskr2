@@ -1,13 +1,22 @@
-{% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %}Posts{% endblock %}</h1>
-  {% if session['id'] %}
-    <a class="action" href="{{ url_for('create') }}">New</a>
-  {% endif %}
-{% endblock %}
-
-{% block content %}
+<!doctype html>
+<title>Posts - Flaskr</title>
+<link rel="stylesheet" href="/static/style.css">
+<nav>
+  <h1>Flaskr</h1>
+  <ul>
+    
+      <li><span>{{ session['username'] }}</span>
+      <li><a href="/logout">Log Out</a>
+    
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    
+  <h1>Posts</h1>
+    <a class="action" href="/create">New</a>
+  </header>
   {% for post in posts %}
     <article class="post">
       <header>
@@ -15,7 +24,7 @@
           <h1>{{ post['title'] }}</h1>
           <div class="about">by {{ post['username'] }} on {{ post['created'] }}</div>
         </div>
-        {% if session['user_name'] == post['username'] %}
+        {% if session['username'] == post['username'] %}
           <a class="action" href="{{ url_for('update', id=post['id']) }}">Edit</a>
         {% endif %}
       </header>
@@ -25,4 +34,7 @@
       <hr>
     {% endif %}
   {% endfor %}
-{% endblock %}
+  
+
+
+</section>
